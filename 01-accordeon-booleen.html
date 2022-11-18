@@ -12,15 +12,15 @@
     <div class="accordeon">
       <section x-data="{isOpen:false}">
         <button @click="isOpen = ! isOpen">bouton 1</button>
-        <p x-show="isOpen">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus, sapiente? Quibusdam, dicta fuga beatae quo rerum eos enim perferendis unde a ab eveniet fugiat saepe aliquid assumenda quod dolorum illum.</p>
+        <p x-show="isOpen" x-transition>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus, sapiente? Quibusdam, dicta fuga beatae quo rerum eos enim perferendis unde a ab eveniet fugiat saepe aliquid assumenda quod dolorum illum.</p>
       </section>
-      <section>
-        <button>bouton 2</button>
-        <p>Necessitatibus, repellat odio exercitationem quam distinctio explicabo temporibus et molestias iste inventore. Nam, neque vel, earum modi nisi, cum aut mollitia totam adipisci laudantium odit placeat fuga animi. Ab, pariatur!</p>
+      <section x-data="{isOpen:false}">
+        <button @click="isOpen = ! isOpen">bouton 2</button>
+        <p x-show="isOpen" x-transition>Necessitatibus, repellat odio exercitationem quam distinctio explicabo temporibus et molestias iste inventore. Nam, neque vel, earum modi nisi, cum aut mollitia totam adipisci laudantium odit placeat fuga animi. Ab, pariatur!</p>
       </section>
-      <section>
-        <button>bouton 3</button>
-        <p>Commodi, et provident? Inventore, aperiam unde rem reiciendis quia et suscipit sint nesciunt excepturi natus sunt qui officia hic, cum veritatis non, ipsam repudiandae temporibus vitae voluptatibus nulla nemo laboriosam.</p>
+      <section x-data="{isOpen:false}">
+        <button @click="isOpen = ! isOpen">bouton 3</button>
+        <p x-show="isOpen" x-transition>Commodi, et provident? Inventore, aperiam unde rem reiciendis quia et suscipit sint nesciunt excepturi natus sunt qui officia hic, cum veritatis non, ipsam repudiandae temporibus vitae voluptatibus nulla nemo laboriosam.</p>
       </section>
     </div>
   </body>
