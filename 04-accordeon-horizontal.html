@@ -4,35 +4,37 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <title>Accordéon horizontal</title>
   </head>
   <body>
     <h1>Accordéon horizontal</h1>
-    <ul id="accordeon">
-      <li>
+    <ul id="accordeon" x-data="{open:1}">
+      <li :class="{actif:open === 1}">
         <figure>
-          <img src="public/img/Landscape-Color.jpg" alt="Landscape" width="102">
+          <img @click="open = 1" src="/public/img/astronaute-dans-espace-exterieur-ouvert-planete-terre-etoiles-fournissent-arriere-plan-formant-espace-au-dessus-planete-terre-lever-du-soleil-coucher-du-solei.jpg" alt="/" width="102" height="102">
           <figcaption>
-            <h3>Lorem, ipsum dolor.</h3>
+            <h3>L'asrtonaute</h3>
             <p>Lorem ipsum dolor sit amet consectetur.</p>
           </figcaption>
         </figure>
       </li>
-      <li>
+      <li :class="{actif:open === 2}">
         <figure>
-          <img src="public/img/astronaute-dans-espace-exterieur-ouvert-planete-terre-etoiles-fournissent-arriere-plan-formant-espace-au-dessus-planete-terre-lever-du-soleil-coucher-du-solei.jpg" alt="astronaute" width="102">
+          <img @click="open = 2" src="/public/img/Landscape-Color.jpg" alt="/" width="102">
           <figcaption>
-            <h3>Suscipit, asperiores voluptate.</h3>
-            <p>Soluta aut explicabo corrupti vel magnam.</p>
+            <h3>La nature</h3>
+            <p>Illo delectus quidem inventore nemo dignissimos.</p>
           </figcaption>
         </figure>
       </li>
-      <li>
+      <li :class="{actif:open === 3}">
         <figure>
-          <img src="public/img/term-bg-1-666de2d9.jpg" alt="term" width="102">
+          <img @click="open = 3" src="/public/img/term-bg-1-666de2d9.jpg" alt="/" width="102">
           <figcaption>
-            <h3>Vel, magnam odit!</h3>
-            <p>Iusto nobis exercitationem quibusdam non dolorem.</p>
+            <h3>Le design</h3>
+            <p>Iure dignissimos est vero voluptates officiis.</p>
           </figcaption>
         </figure>
       </li>
@@ -42,42 +44,53 @@
 
 <style>
 #accordeon {
-  display: inline-block;
-  margin: 0; /* pour éviter les marges par défaut */
-  padding: 0; /* pour éviter les "padding" par défaut */
+    display: flex;
+    margin: 0;
+    padding: 0;
 }
 
 #accordeon li {
-  overflow: hidden; /* pour cacher le contenu dépassant de l'élément */
-  height: 90px;
-  list-style-type: none; /* pour enlever les puces */
-  margin: 3px; /* pour espacer les éléments, marge de 3px */
-  padding: 5px; /* pour espacer le contenu, padding de 5px */
-  background-color: #EEE; /* couleur de fond #eee */
-  border-radius: 5px; /* pour arrondir les bords de 5px */
+    width: 107px; /* largeur de chaque élément replié 107px */
+    overflow: hidden;/* pour cacher le contenu dépassant de l'élément */
+    transition: all 1000ms;/* pour l'animation, transition sur width */
+    background-color: #eee; /* couleur de fond #eee */
+    list-style: none;/* pour enlever les puces */
+    margin: 3px; /* pour espacer les éléments, marge de 3px */
+    padding: 5px; /* pour espacer le contenu, padding de 5px */
+    border-radius: 5px; /* pour arrondir les bords de 5px */ 
 }
 
 #accordeon li.actif {
-  width: 317px; /* largeur de l'élément déplié 317px */
+    width: 317px;
+    /* largeur de l'élément déplié 317px */
 }
 
 #accordeon li figure {
- margin: 0;/* pour éviter les marges par défaut */
- width: auto;/* pour que les éléments soient alignés horizontalement */
- margin: 317px;/* largeur de l'élément intrérieur de 317px (= déplié) */
+    margin: 0; /* pour éviter les marges par défaut */
+    display: flex; /* pour que les éléments soient alignés horizontalement */
+    width: 317px; /* largeur de l'élément intrérieur de 317px (= déplié) */
 }
 
 #accordeon li figure figcaption {
- text-size-adjust: 200px;/* largeur du texte de 200px */
- text-align: 10px;/* pour espacer le texte, padding de 10px */
- vertical-align: auto;/* pour que les éléments soient alignés verticalement */
-
- /* espace entre les éléments */
+    width: 200px; /* largeur du texte de 200px */
+    padding: 10px; /* pour espacer le texte, padding de 10px */
+    display: flex; /* pour que les éléments soient alignés verticalement */
+    margin: 10px; /* espace entre les éléments */  
 }
 
-/* Sur tous les enfants de figcation */
 #accordeon li figure figcaption > * {
- margin: 0;/* pour éviter les marges par défaut */
- padding: 0;/* pour éviter les "padding" par défaut */
+    margin: 0px; /* pour éviter les marges par défaut */
+    padding: 0px; /* pour éviter les "padding" par défaut */ 
+}
+
+#accordeon li figure figcaption h3 {
+    font-size: 20px; /* taille du titre */
+    font-weight: bold; /* gras */
+    margin-bottom: 5px; /* espace entre le titre et le texte */
+}
+
+#accordeon li figure figcaption p {
+    font-size: 12px; /* taille du texte */
+    color: #666; /* couleur du texte */
 }
 </style>
