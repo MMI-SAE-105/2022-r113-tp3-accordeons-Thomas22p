@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Onglets</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
   <body>
     <h1>Onglets</h1>
@@ -13,12 +15,12 @@
     }">
 
     <ul role="tablist">
-      <li role="tab">Onglet 1</li>
-      <li role="tab">Onglet 2</li>
-      <li role="tab">Onglet 3</li>
+      <li role="tab" @click="ouvert = 1" :class="{'actif':ouvert==1}">Onglet 1</li>
+      <li role="tab" @click="ouvert = 2" :class="{'actif':ouvert==2}">Onglet 2</li>
+      <li role="tab" @click="ouvert = 3" :class="{'actif':ouvert==3}">Onglet 3</li>
     </ul>
 
-    <div>
+    <div id="panneaux">
       <div role="tabpanel" x-show="ouvert === 1">
         <h1>Panneau 1</h1>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto dolorum rem eius explicabo voluptatum minima, ex fuga id, eveniet quo officiis doloribus est sapiente eaque possimus, deleniti tempora culpa numquam!</p>
@@ -34,3 +36,27 @@
     </div>
   </body>
 </html>
+
+<style>
+#onglets li {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  cursor: pointer;
+  color:blue;
+}
+
+#panneaux {
+  position: relative;
+  background-color: aquamarine;
+  width: 300px;
+  height: 200px;
+  border: 10px;
+  border: 1px solid #ccc;
+}
+
+.tab {
+  position: absolute;
+}
+</style>
